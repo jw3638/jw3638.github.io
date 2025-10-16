@@ -1,14 +1,19 @@
 ---
 title: "Here are some plots"
-output: 
-  html_document:
-  theme: cerulean
+output: html_document
 ---
 
 Here's the tidyvderse.
 ```{r}
 library(tidyverse)
 ```
+
+```{r}
+library(rmarkdown)
+
+
+```
+
 
 Here's a dataframe.
 ```{r}
