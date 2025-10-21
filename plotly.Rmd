@@ -1,0 +1,89 @@
+---
+title: "plotly plots"
+output: html_document
+---
+
+Here is a way to make interactive plots using plotly
+
+```{r, message = FALSE}
+library(tidyverse)
+library(plotly)
+
+library(p8105.datasets)
+```
+
+Making plots related to Airbnbs. Let's load the AirBnb dataset
+```{r}
+data("nyc_airbnb")
+
+nyc_airbnb =
+  nyc_airbnb |> 
+  mutate(
+    rating = review_scores_location / 2
+  ) |>
+  select(
+    neighbourhood_group, neighbourhood, rating, price, room_type, lat, long
+  ) |>
+  filter( 
+    neighbourhood_group == "Manhattan",
+    room_type == "Entire home/apt",
+    price <= 500,
+    price >= 100
+  )
+```
+
+Let's make a scatterlot, but interactive 
+```{r}
+nyc_airbnb |>
+  mutate(
+    label = str_c("price: $", price, "\nRating: ", rating) 
+  ) |>
+  plot_ly(
+    x = ~long, y = ~lat, color = ~price,
+    text = ~ label,
+    type = "scatter", mode = "markers", alpha = 0.5
+  )
+```
+
+Let's make a boxplot.
+```{r}
+nyc_airbnb |> 
+  count(neighbourhood) |> 
+  mutate(neighbourhood = fct_reorder(neighbourhood, n)) |> 
+  plot_ly(x = ~neighbourhood, y = ~n, color = ~neighbourhood, type = "bar", colors = "viridis")
+```
+
+Barcharts 
+```{r}
+nyc_airbnb |>
+  count(neighbourhood) |>
+  mutate(
+    neighborhood = fct_reorder(neighbourhood, n)
+  ) |>
+  plot_ly(
+    x = ~neighbourhood, y =~n,
+    type = "bar"
+  )
+```
+
+## ggplotly
+```{r}
+scatter_ggplot = 
+  nyc_airbnb |>
+  ggplot(aes(x = lat, y = long, color = price)) +
+  geom_point(alpha = 0.25) +
+  coord_cartesian()
+
+ggplotly(scatter_ggplot)
+
+
+box_ggplot = 
+  nyc_airbnb |> 
+  mutate(neighbourhood = fct_reorder(neighbourhood, price)) |> 
+  ggplot(aes(x = neighbourhood, y = price, fill = neighbourhood)) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+ggplotly(box_ggplot)
+```
+

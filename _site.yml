@@ -5,6 +5,12 @@ navbar:
   right:
     - text: "About"
       href: About.html
+    - text: "plots"
+      href: plots.html
+    - text: "plotly"
+      href: plotly.html
+    - text: "dashboard_template"
+      href: dashboard_template.html
     - icon: fa-envelope fa-lg
       href: mailto:you@youremail.com
     - icon: fa-github fa-lg
