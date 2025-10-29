@@ -11,7 +11,7 @@ Hello! My name is **Jaia Wingard**, and this website was created as part of my D
 
 Here, you will find examples of my work in R, including data visualizations, interactive dashboards, and more.
 
-Go to the [About](about.html) page to learn more about my academic and professional experience.
+Go to the [About](About.html) page to learn more about my academic and professional experience.
 
 Go to the [Dashboard](dashboard.html) page to find examples of interactive data visualizations creared in R using `plotly` and `flexdashboard`.
 
