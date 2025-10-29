@@ -1,5 +1,5 @@
 ---
-title: "My awesome website"
+title: "Jaia Wingard"
 output: 
   html_document:
     toc: true
@@ -7,16 +7,12 @@ output:
     theme: cerulean
 ---
 
-# This is Jaia's awesome website
+Hello! My name is **Jaia Wingard**, and this website was created as part of my Data Science Course [P8105](https://p8105.com/index.html) for the Biostatistics Certificate. 
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+Here, you will find examples of my work in R, including data visualizations, interactive dashboards, and more.
 
-This website is an example coming from [P9105] (https://p8105.com/index.html).
-We're making websites today! Learn more about this site [here](About.html)
+Go to the [About](about.html) page to learn more about my academic and professional experience.
 
-I also use for [google](https://www.google.com/) a ton of data science.
+Go to the [Dashboard](dashboard.html) page to find examples of interactive data visualizations creared in R using `plotly` and `flexdashboard`.
 
-To show that you can just use RMD like normal, check out [this page](plots.html) with plots.
-
-Here's a picture of Harley::
-![](images/harley.jpeg)
+![](images/Headshot.jpeg)

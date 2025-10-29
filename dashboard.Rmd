@@ -1,0 +1,126 @@
+---
+title: "Interactive Weather Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: scroll
+    theme: cerulean
+---
+This dashboard explores weather patterns across New York State using NOAA data. Interactive visualizations display trends in temperature and precipitation from 2000-2010. These insights can help understand climate variability and potential implications for public health and environmental planning. Data source: [NOAA National Climatic Data Center](https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc:C00861/html)
+ 
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+```
+
+```{r}
+data("ny_noaa")
+
+ny_noaa_clean <- ny_noaa |>
+  mutate(
+    year = lubridate::year(date),
+    tmax_c = as.numeric(tmax)/10,
+    tmin_c = as.numeric(tmin)/10,
+    prcp_mm = as.numeric(prcp)/10,
+    # Create hover labels
+    label = str_c("Date: ", date, "\nMax Temp: ", tmax_c, "°C\nMin Temp: ", tmin_c, "°C")
+  ) |>
+  filter(!is.na(tmax_c), !is.na(tmin_c), year >= 2000) 
+```
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+### Min and Max Temperature Dates
+```{r}
+ny_noaa_clean |>
+  sample_n(1000) |>  
+  plot_ly(
+    x = ~tmin_c,
+    y = ~tmax_c,
+    color = ~tmax_c,
+    colors = "viridis",
+    text = ~label,
+    type = "scatter",
+    mode = "markers",
+    marker = list(opacity = 0.6, size = 4),
+    alpha = 0.5
+  ) |>
+  layout(
+    xaxis = list(title = "TMIN (°C)"),
+    yaxis = list(title = "TMAX (°C)")
+  )
+```
+
+### Distribution of Minimum Temperatures
+```{r}
+ny_noaa_clean |>
+  plot_ly(
+    x = ~tmin_c,
+    type = "histogram",
+    nbinsx = 30,
+    marker = list(color = "lightblue", line = list(color = "darkblue", width = 1)),
+    name = "TMIN Distribution"
+  ) |>
+  layout(
+    title = "Distribution of Minimum Temperatures (°C)",
+    xaxis = list(title = "Minimum Temperature (°C)"),
+    yaxis = list(title = "Count")
+  )
+```
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+
+### Seasonal Temperature BoxPlot
+```{r}
+ny_noaa_season <- ny_noaa_clean |>
+  mutate(
+    month = lubridate::month(date),
+    season = case_when(
+      month %in% c(12, 1, 2) ~ "Winter",
+      month %in% c(3, 4, 5) ~ "Spring", 
+      month %in% c(6, 7, 8) ~ "Summer",
+      month %in% c(9, 10, 11) ~ "Fall"
+    )
+  ) |>
+  filter(!is.na(season))  # Remove any NA seasons
+
+temp_boxplot <- ny_noaa_season |>
+  ggplot(aes(x = season, y = tmax_c, fill = season)) +
+  geom_boxplot(alpha = 0.7) + 
+  scale_fill_viridis_d() +
+  labs(title = "Maximum Temperature by Season", 
+       x = "Season", 
+       y = "Maximum Temperature (°C)") +
+  theme_minimal() +
+  theme(legend.position = "none") 
+
+ggplotly(temp_boxplot, height = 400)  
+```
+
+### Precipitation by Year
+```{r}
+precip_by_year <- ny_noaa_clean |>
+  group_by(year) |>
+  summarize(total_prcp = sum(prcp_mm, na.rm = TRUE))
+
+precip_by_year |>
+  plot_ly(
+    x = ~year,
+    y = ~total_prcp,
+    type = "bar",
+    marker = list(color = ~total_prcp, colorscale = "Blues"),
+    text = ~str_c("Year: ", year, "\nPrecipitation: ", round(total_prcp, 0), "mm"),
+    hoverinfo = "text",
+    name = "Total Precipitation"
+  ) |>
+  layout(
+    title = "Total Precipitation by Year (mm)",
+    xaxis = list(title = "Year"),
+    yaxis = list(title = "Total Precipitation (mm)")
+  )
+```

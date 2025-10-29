@@ -1,18 +1,14 @@
-name: "Yay internet!"
+name: "Jaia Wingard Website"
 output_dir: "."
 navbar:
   title: "Home"
   right:
     - text: "About"
       href: About.html
-    - text: "plots"
-      href: plots.html
-    - text: "plotly"
-      href: plotly.html
-    - text: "dashboard_template"
-      href: dashboard_template.html
+    - text: "Dashboard"
+      href: dashboard.html
     - icon: fa-envelope fa-lg
-      href: mailto:you@youremail.com
+      href: mailto:jw3638@cumc.columbia.edu
     - icon: fa-github fa-lg
       href: http://github.com/jw3638/
 output:

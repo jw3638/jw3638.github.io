@@ -1,8 +1,57 @@
 ---
-title: "About this website"
+title: "About Me!"
 output: 
   html_document:
     theme: cerulean
 ---
- This website was coded by Jaia Wingard using RMarkdown to do all the hard work.
- Go back to the [homepage](index.html).
+
+I'm currently an MPH candidate at Columbia Mailman school of Public Health passionate about rectifying health disparities through clinical research and community outreach. 
+
+## Education
+- **MPH** Candidate, Columbia University Mailman School of Public Health in the department of Epidemiology pursuing the certificate in Applied Biostatistics and Public Health Data Science.  
+- **B.A.** in Neuroscience and Behavior, Columbia University
+
+## Research
+Publications:
+[Structural Racism in Cervical Cancer Care and Survival Outcomes: A Systematic Review of Inequities and Barriers](https://pubmed.ncbi.nlm.nih.gov/40297709/)
+
+[Impact of Pandemic on Accrual of Minority Participants to Interventional Cancer Clinical Trials](https://ascopubs.org/doi/10.1200/JCO.2023.41.16_suppl.e18581)
+
+[The COVID-19 Pandemic's Impact on Diagnosis of Cancers Detectable Through Screening](https://ascopubs.org/doi/abs/10.1200/JCO.2023.41.16_suppl.e18669)
+
+Publication in Progress: [Project CLEAR](https://pubmed.ncbi.nlm.nih.gov/40585096/)
+
+**Llanos Lab, Columbia University, Mailman School of Public Health Department of Epidemiology**
+Research Assistant:
+Building skills across various concurrent studies: Manuscript writing, field data collection and entry, tools development and adaptation, systematic review data extraction.
+Projects in progress: 
+The UREMBO Study: Understanding risk of environmental endocrine disrupting chemical exposures from beauty product use on inflammatory biomarkers in collaboration with Kenya Medical Research Institute. Project CLEAR (ChemicaL Exposure and Awareness Research): Characterizing Toxic Chemical Exposures in Skin Lightening Products Available in Northern Manhattan in collaboration with Dr. Dustin Duncan lab.
+
+**Centro de Investigación de Investigación y Salud, Universidad Mayor (CISS)**
+Research Intern: [Investigating Successful Aging](https://ciss.umayor.cl/noticias/pasantia-internacional-fortalece-lazos-entre-el-ciss-y-la-universidad-de-columbia) through holistic perspectives. 
+Deliverables: Literature review, research report including data analysis, and evidence-based recommendations for key stakeholders
+
+**Ryeom Lab, Columbia University, Department of Surgery**
+Research Assistant: 
+Characterization of the gastric cancer tumor microenvironment through pathway analysis. Investigation of the Oncogenic KRAS and p53 mutations using triple conditional genetically engineered mouse model. Analysis of tumor growth through both orthotopic and subcutaneous procedures by microscopically visualizing and testing the outcomes of different drug combinations.
+
+**Center for Disease Control, Columbia Mailman School of Public Health**
+John R. Lewis Summer Public Health Scholar:
+Exposed to Columbia Mailman School of Public Health Coursework and faculty seminars. Engaged in public health fieldwork internship for a nonprofit in Washington Heights, New York City, Uptown Dreamers, Summer Literacy and Athletics Program for Youth. Presented my research on the Impact of Community Engagement on Health and Career Trajectory in Washington Heights Youth at the CDC Headquarters.
+
+**Penn Medicine, Abramson Cancer Center**
+Intern in the Office of the Director and Basser Center Intern
+
+Collected, organized, and analyzed patient demographics data to identify cancer treatment disparities in Philadelphia and its surrounding counties. The dataset I created is used to inform community- and institution-based initiatives that minimize barriers to cancer clinical trial enrollment of underserved populations. Experience in Penn Medicine’s, Hematology Oncology & genetic counseling clinic, Ovarian cancer lab and DNA damage repair lab
+
+**Swing Ventures, LLC**
+
+Summer Venture Capital Analyst. 
+Searched for, created, and applied for grant allocation plans, stimulus, tax credit, and awards for Swing Ventures. Developed communication and analytical skills by coordinating with 11 portfolio companies in technology and finance to research business strategic initiatives specific to the COVID-19 pandemic
+
+## Skills
+- Programming & Data Analytics: SAS, R
+- Data Collection tools/EHRs: Qualtrics, Excel, RedCap
+- Public health communication: Manuscript writing, systematic/literature review  
+
+Go back to the [homepage](index.html).
